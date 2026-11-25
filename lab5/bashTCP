@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 ip_addr device" >&2
+  exit 1
+fi
+iperf -c $1 -i 1 -t 60 -f m | tee tcp_$2.txt

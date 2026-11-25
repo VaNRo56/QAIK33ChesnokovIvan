@@ -1,0 +1,7 @@
+#!/usr/bin/gnuplot
+set terminal pngcairo size 900,500
+set output 'tcp_mtbf.png'
+set xlabel "Time, sec"
+set ylabel "Mbit/sec"
+set grid
+plot "< grep 'Mbits/sec' tcp_client.txt | head -n -1 | awk '{split($3,a,\"-\"); print a[2], $7}'" with lines title "TCP client"
